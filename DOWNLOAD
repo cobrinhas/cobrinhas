@@ -6,7 +6,10 @@ repo_branch='master'
 
 if [[ -x "$(command -v git)" ]]
 then
-    if [[ -d $repo_name ]]
+    if [[ -f DOWNLOAD ]]
+    then
+        git pull
+    elif [[ -d $repo_name ]]
     then
         (cd $repo_name; git checkout $repo_branch; git pull)
     else
