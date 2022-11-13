@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+alias_source=~/.bash_aliases
+source $alias_source
+
+alias update_cobrinhas="(cd $(pwd); exec DOWNLOAD; exec run.bash)"
+
+alias > $alias_source
+
+({ crontab -l; cat cronfile; } | awk '!x[$0]++' | crontab - ) &> /dev/null
+
+exec run.bash

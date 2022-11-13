@@ -1,0 +1,3 @@
+
+# at noon every sunday, update cobrinhas 
+0 12 * * 7 bash -ic "update_cobrinhas"
